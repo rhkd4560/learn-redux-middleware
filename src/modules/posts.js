@@ -1,4 +1,4 @@
-import * as postsAPI from '..//api/posts';
+import * as postsAPI from '../api/posts';
 import { reducerUtils, createPromiseThunk, handleAsyncActions } from '../lib/asyncUtils';
 
 const GET_POSTS = 'GET_POSTS';
