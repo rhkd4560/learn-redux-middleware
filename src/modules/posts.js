@@ -11,7 +11,7 @@ const GET_POST_ERROR = 'GET_POST_ERROR';
 
 //thunk 생성함수
 export const getPosts = createPromiseThunk(GET_POSTS, postsAPI.getPosts);
-export const getPost = createPromiseThunk(GET_POSTS, postsAPI.getPostById);
+export const getPost = createPromiseThunk(GET_POST, postsAPI.getPostById);
 
 const initialState = {
     posts: reducerUtils.initial(),
