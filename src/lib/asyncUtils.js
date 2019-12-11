@@ -19,6 +19,33 @@ export const createPromiseThunk = (type, promiseCreator) => {
     }
 };
 
+//3가지 액션에 대한 reducer를 만들어서 반환
+export const handleAsyncActions = (type, key) => {  //createPromiseThunk의 type과 비슷, key 는 posts, post
+    const [SUCCESS, ERROR] = [ `${type}_SUCCESS`, `${type}_ERROR` ];
+    //reducer
+    return (state, action) => {
+        switch (action.type) {
+            case type:
+                return{
+                    ...state,
+                    [key]: reducerUtils.loading()
+                };
+            case SUCCESS:
+                return{
+                    ...state,
+                    [key]: reducerUtils.success(action.payload)
+                };
+            case ERROR:
+                return{
+                    ...state,
+                    [key]: reducerUtils.error(action.payload)
+                };
+            default:
+                return state;
+        }
+    }
+}
+
 export const reducerUtils ={
     initial: (data = null) => ({
         data,
