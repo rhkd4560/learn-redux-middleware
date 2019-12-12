@@ -14,6 +14,9 @@ const CLEAR_POST = 'CLEAR_POST'
 //thunk 생성함수
 export const getPosts = createPromiseThunk(GET_POSTS, postsAPI.getPosts);
 export const getPost = createPromiseThunkById(GET_POST, postsAPI.getPostById);
+export const goToHome = () => (dispatch, getState, { history }) => {
+    history.push('/');
+}
 
 export const clearPost = () => ({ type: CLEAR_POST });
 
